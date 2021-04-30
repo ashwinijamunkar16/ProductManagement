@@ -1,5 +1,6 @@
 export class AppError{
-    constructor(public originalerror: any){
+    constructor(public originalerror: Response){
+        // debugger;
         alert('AppError');
         alert(JSON.stringify(originalerror));
     }

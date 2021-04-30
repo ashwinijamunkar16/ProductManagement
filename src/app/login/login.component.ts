@@ -14,21 +14,24 @@ export class LoginComponent implements OnInit {
   }
 
   signIn(Uservalues: any){
+    // debugger;
     // this.invalidLogin = true;
     const TempContentType = 'application/x-www-form-urlencoded';
+    const TempgrantType = 'password';
     if(Uservalues.username !== '' && Uservalues.password !== '')
     {
       const credentials = {
         username: Uservalues.username,
         password: Uservalues.password,
-        ContentType: TempContentType
+        ContentType: TempContentType,
+        grant_type: TempgrantType
       };
       this.authservice.login(credentials)
       .subscribe((response: any) => {
-        // debugger;
         localStorage.setItem('user', JSON.stringify(response));
-        if(response && response.token)
+        if(response && response.access_token)
         {
+            this.invalidLogin =  false;
             this.router.navigate(['/']);
         }
         else
@@ -36,8 +39,7 @@ export class LoginComponent implements OnInit {
             this.invalidLogin =  true;
         }
       },
-      (error: any) =>{
-        // debugger;
+      (error: any) => {
         if (error.statusText === 'Unknown Error')
         {
             alert('Service is temporarily down, please try after some time.');
