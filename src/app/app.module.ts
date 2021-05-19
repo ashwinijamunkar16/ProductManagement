@@ -12,7 +12,9 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import { HomeComponent } from './home/home.component';
 import { AuthService } from './services/AuthService';
 import { AppErrorHandler } from './Common/AppErrorHandler';
-
+import { StoreModule} from '@ngrx/store';
+import { TodoReducer } from '../app/reducers/todo.reducers';
+import { IsLoginFlagReducer, LoginReducer } from './reducers/login.reducers';
 
 @NgModule({
   declarations: [
@@ -35,6 +37,13 @@ import { AppErrorHandler } from './Common/AppErrorHandler';
         { path: 'login', component: LoginComponent },
         { path: '**', component: PageNotFoundComponent },
       ]
+    ),
+    StoreModule.forRoot(
+      { 
+        todos: TodoReducer, 
+        loginuser: LoginReducer,
+        isLoginFlag: IsLoginFlagReducer 
+      }
     )
     // ,
     // AppBootstrapModule
