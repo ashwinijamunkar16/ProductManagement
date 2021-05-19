@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from '../services/AuthService';
+import { Store } from '@ngrx/store';
+import { SetLoginAction, SetLoginFlagAction } from '../actions/todo.actions';
+
 
 @Component({
   selector: 'app-login',
@@ -10,7 +13,9 @@ import { AuthService } from '../services/AuthService';
 export class LoginComponent implements OnInit {
   invalidLogin: boolean = false;
 
-  constructor(private router: Router, private authservice: AuthService) {
+  constructor(private router: Router, 
+    private authservice: AuthService,
+    private store: Store<{ loginuser: any }>) {
   }
 
   signIn(Uservalues: any){
@@ -28,14 +33,18 @@ export class LoginComponent implements OnInit {
       };
       this.authservice.login(credentials)
       .subscribe((response: any) => {
+        debugger;
         localStorage.setItem('user', JSON.stringify(response));
         if(response && response.access_token)
         {
+            this.store.dispatch(new SetLoginAction(JSON.stringify(response)))
+            this.store.dispatch(new SetLoginFlagAction(true));
             this.invalidLogin =  false;
             this.router.navigate(['/']);
         }
         else
         {
+            this.store.dispatch(new SetLoginFlagAction(false));
             this.invalidLogin =  true;
         }
       },
