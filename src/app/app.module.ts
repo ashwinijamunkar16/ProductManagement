@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, ErrorHandler } from '@angular/core';
 
+import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -12,19 +13,25 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import { HomeComponent } from './home/home.component';
 import { AuthService } from './services/AuthService';
 import { AppErrorHandler } from './Common/AppErrorHandler';
-import { StoreModule} from '@ngrx/store';
+import { StoreModule } from '@ngrx/store';
 import { TodoReducer } from '../app/reducers/todo.reducers';
 import { IsLoginFlagReducer, LoginReducer } from './reducers/login.reducers';
+import { ProductDetailsComponent } from './product-details/product-details.component';
+
+
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
+    HomeComponent,
     NavbarComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    ProductDetailsComponent
   ],
   imports: [
-    // NgbModule,
+    //NgbModule,
+    CommonModule,
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
@@ -35,14 +42,16 @@ import { IsLoginFlagReducer, LoginReducer } from './reducers/login.reducers';
         { path: '', component: HomeComponent },
         // { path: 'home', component: HomeComponent },
         { path: 'login', component: LoginComponent },
-        { path: '**', component: PageNotFoundComponent },
+        { path: 'prodDetails', component: ProductDetailsComponent },
+        { path: '**', component: PageNotFoundComponent }
+
       ]
     ),
     StoreModule.forRoot(
-      { 
-        todos: TodoReducer, 
+      {
+        todos: TodoReducer,
         loginuser: LoginReducer,
-        isLoginFlag: IsLoginFlagReducer 
+        isLoginFlag: IsLoginFlagReducer
       }
     )
     // ,
@@ -50,7 +59,7 @@ import { IsLoginFlagReducer, LoginReducer } from './reducers/login.reducers';
   ],
   providers: [
     AuthService,
-    { provide: ErrorHandler, useClass: AppErrorHandler}
+    { provide: ErrorHandler, useClass: AppErrorHandler }
   ],
   bootstrap: [AppComponent]
 })

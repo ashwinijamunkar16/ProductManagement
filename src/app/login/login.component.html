@@ -1,15 +1,12 @@
 <!------ Include the above in your HEAD tag ---------->
 
-<div class="wrapper fadeInDown">
+<!-- <div class="wrapper fadeInDown">
     <div id="formContent">
-      <!-- Tabs Titles -->
   
-      <!-- Icon -->
         <div id="formHeader">
                 <img src="/../../assets/images/login-icon-3048.png" id="icon" alt="User Icon" />
         </div>
   
-      <!-- Login Form -->
       <form class="form-signin" #f="ngForm" (ngSubmit)="signIn(f.value)">
         <div *ngIf="invalidLogin" class="alert alert-danger">Invalid username and/or password.</div>
         <input type="text" id="Username" class="form-control" name="username" ngModel placeholder="Username" required autofocus>
@@ -17,10 +14,126 @@
         <input type="submit" class="btn btn-lg btn-primary" value="Log In">
       </form>
   
-      <!-- Remind Passowrd -->
       <div id="formFooter">
         <a class="underlineHover" href="#">Forgot Password?</a>
       </div>
   
     </div>
+  </div> -->
+
+  
+
+  <!DOCTYPE html>
+  <html lang="en">
+  <head>
+
+    <style>
+      /* Remove the navbar's default margin-bottom and rounded borders */
+      .navbar {
+        margin-bottom: 0;
+        border-radius: 0;
+      }
+
+      /* Set height of the grid so .sidenav can be 100% (adjust as needed) */
+      .row.content {height: 450px}
+
+      /* Set gray background color and 100% height */
+      .sidenav {
+        padding-top: 20px;
+        background-color: #f1f1f1;
+        height: 100%;
+      }
+
+      /* Set black background color, white text and some padding */
+      footer {
+        background-color: #555;
+        color: white;
+        padding: 15px;
+      }
+
+      /* On small screens, set height to 'auto' for sidenav and grid */
+      @media screen and (max-width: 767px) {
+        .sidenav {
+          height: auto;
+          padding: 15px;
+        }
+        .row.content {height:auto;}
+      }
+    </style>
+  </head>
+
+  <body>
+
+
+  <div class="container-fluid text-center">
+    <div class="row content">
+      <!-- <div class="col-sm-2 sidenav pillar">
+      
+  <div class="panel-group marg" id="accordion">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4 class="panel-title">
+          <a data-toggle="collapse" data-parent="#accordion" href="#collapse1">Womens</a>
+        </h4>
+      </div>
+      <div id="collapse1" class="panel-collapse collapse in">
+        <div class="panel-body">Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+        sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</div>
+      </div>
+    </div>
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4 class="panel-title">
+          <a data-toggle="collapse" data-parent="#accordion" href="#collapse2">Mens</a>
+        </h4>
+      </div>
+      <div id="collapse2" class="panel-collapse collapse">
+        <div class="panel-body">Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+        sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</div>
+      </div>
+    </div>
+</div>
+    
+      </div> -->
+      <div class="col-sm-8">
+        <div class="wrapper fadeInDown">
+          <div id="formContent">
+      <div id="formHeader">
+        <img src="/../../assets/images/login-icon-3048.png" id="icon" alt="User Icon" />
+      </div>
+
+      <form class="form-signin" #f="ngForm" (ngSubmit)="signIn(f.value)">
+        <div *ngIf="invalidLogin" class="alert alert-danger">Invalid username and/or password.</div>
+        <div> <span class="input-group-addon">
+          <i class="glyphicon glyphicon-user">
+          </i>
+        <input type="text" id="Username" class="form-control" name="username" ngModel placeholder="Username" required autofocus></span></div>
+        
+        <div> <span class="input-group-addon">
+          <i class="glyphicon glyphicon-lock">
+          </i>
+          <input type="password" id="password" class="form-control password" name="password" ngModel placeholder="Password" required autofocus></span></div>
+        
+        
+        <input type="submit" class="btn btn-lg btn-primary" value="Log In">
+      </form>
+      </div>
+      </div>
+      </div>
+      <!-- <div class="col-sm-2 sidenav pillar">
+        <div class="well">
+          <p>ADS</p>
+        </div>
+        <div class="well">
+          <p>ADS</p>
+        </div>
+      </div> -->
+    </div>
   </div>
+
+
+  </body>
+  </html>
+

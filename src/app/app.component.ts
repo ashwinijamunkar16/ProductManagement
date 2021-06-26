@@ -11,16 +11,15 @@ import { SetLoginAction, SetLoginFlagAction } from '../app/actions/todo.actions'
 export class AppComponent {
   title = 'ProductManagement';
 
-  constructor(private router: Router, private store: Store<{ loginuser: any }>){
+  constructor(private router: Router, private store: Store<{ loginuser: any }>) {
     // debugger;
     const user = localStorage.getItem('user');
-    if (user === undefined || user === '' || user === null)
-    {
+    if (user === undefined || user === '' || user === null) {
       this.store.dispatch(new SetLoginFlagAction(false));
-      this.router.navigate(['/login']);
+      //this.router.navigate(['/login']);
+      this.router.navigate(['/']);
     }
-    else if(user && JSON.parse(user).access_token)
-    {
+    else if (user && JSON.parse(user).access_token) {
       this.store.dispatch(new SetLoginAction(user))
       this.store.dispatch(new SetLoginFlagAction(true));
       this.router.navigate(['/']);

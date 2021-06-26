@@ -1,1 +1,130 @@
-<h2>Welcome to Home!</h2>
+<!-- <div className="row col-sm-12">
+	<div className="card" style="width: 15rem; margin:10px 8px 10px 10px">
+		
+			<img style="height:150px" src='https://i2.wp.com/blog.knoldus.com/wp-content/uploads/2019/07/ngrx-redux-pattern-diagram.png?resize=810%2C434&ssl=1' className="card-img-top" alt="..." />
+	
+		<div className="card-body">
+			<h5 className="card-title">prod</h5>
+			<p className="card-text">superb</p>
+		</div>
+
+        
+	</div>	
+    
+</div> -->
+
+<div class="container">
+	<div class="row">
+       
+        <!-- <div class="col-sm-3">
+            <article class="col-item">
+            	<div class="photo">
+        			<div class="options-cart-round">
+        				<button class="btn btn-default" title="Add to cart">
+        					<span class="fa fa-shopping-cart"></span>
+        				</button>
+        			</div>
+        			<a href="#"> <img src="https://unsplash.it/500/300?image=0" class="img-responsive" alt="Product Image" /> </a>
+        		</div>
+        		<div class="info">
+        			<div class="row">
+        				<div class="price-details col-md-6">
+        					<p class="details">
+        						Lorem ipsum dolor sit amet, consectetur..
+        					</p>
+        					<h1>Sample Product</h1>
+        					<span class="price-new">$110.00</span>
+        				</div>
+        			</div>
+        		</div>
+        	</article>
+            <p class="text-center">Hover over image</p>
+        </div>
+        <div class="col-sm-3">
+            <article class="col-item">
+        		<div class="photo">
+        			<div class="options">
+        				<button class="btn btn-default" type="submit" data-toggle="tooltip" data-placement="top" title="Add to wish list">
+        					<i class="fa fa-heart"></i>
+        				</button>
+        				<button class="btn btn-default" type="submit" data-toggle="tooltip" data-placement="top" title="Compare">
+        					<i class="fa fa-exchange"></i>
+        				</button>
+        			</div>
+        			<div class="options-cart">
+        				<button class="btn btn-default" title="Add to cart">
+        					<span class="fa fa-shopping-cart"></span>
+        				</button>
+        			</div>
+        			<a href="#"> <img src="https://unsplash.it/500/300?image=0" class="img-responsive" alt="Product Image" /> </a>
+        		</div>
+        		<div class="info">
+        			<div class="row">
+        				<div class="price-details col-md-6">
+        					<p class="details">
+        						Lorem ipsum dolor sit amet, consectetur..
+        					</p>
+        					<h1>Sample Product</h1>
+        					<span class="price-new">$110.00</span>
+        				</div>
+        			</div>
+        		</div>
+        	</article>
+            <p class="text-center">Hover over image</p>
+        </div>
+        <div class="col-sm-3">
+        	<article class="col-item">
+        		<div class="options">
+        			<button class="btn btn-default" type="submit" data-toggle="tooltip" data-placement="top" title="Add to wish list">
+        				<i class="fa fa-heart"></i>
+        			</button>
+        			<button class="btn btn-default" type="submit" data-toggle="tooltip" data-placement="top" title="Compare">
+        				<i class="fa fa-exchange"></i>
+        			</button>
+        		</div>
+        		<div class="photo">
+        			<a href="#"> <img src="https://unsplash.it/500/300?image=0" class="img-responsive" alt="Product Image" /> </a>
+        		</div>
+        		<div class="info">
+        			<div class="row">
+        				<div class="price-details col-md-6">
+        					<p class="details">
+        						Lorem ipsum dolor sit amet, consectetur..
+        					</p>
+        					<h1>Sample Product</h1>
+        					<span class="price-new">$110.00</span>
+        				</div>
+        			</div>
+        		</div>
+        	</article>
+        </div> -->
+        <div class="col-sm-3" *ngFor='let Product of Products'>
+        	<article class="col-item">
+        		<div class="photo">
+        			<a href="#" [routerLink]="['/prodDetails',Product]"> <img src="https://unsplash.it/500/300?image=0" class="img-responsive" alt="Product Image" /> </a>
+        		</div>
+        		<div class="info" >
+        			<div class="row">
+        				<div class="price-details col-md-6">
+        					<p class="details">
+        						Laptop
+        					</p>
+        					<h1>{{Product.details}}</h1>
+        					<span class="price-new">{{Product.price | currency:"₹"}}</span>
+        				</div>
+        			</div>
+        			<div class="separator clear-left">
+        				<p class="btn-add">
+        					<i class="fa fa-shopping-cart"></i><a href="" (click)='addToCart(product.id)' class="hidden-sm">Add to cart</a>
+        				</p>
+        				<p class="btn-details">
+        					<a href="#" class="hidden-sm" data-toggle="tooltip" data-placement="top" title="Add to wish list"><i class="fa fa-heart"></i></a>
+        					<a href="#" class="hidden-sm" data-toggle="tooltip" data-placement="top" title="Compare"><i class="fa fa-exchange"></i></a>
+        				</p>
+        			</div>
+        			<div class="clearfix"></div>
+        		</div>
+        	</article>
+        </div>
+	</div>
+</div>
