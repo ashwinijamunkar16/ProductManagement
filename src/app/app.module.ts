@@ -17,6 +17,7 @@ import { StoreModule } from '@ngrx/store';
 import { TodoReducer } from '../app/reducers/todo.reducers';
 import { IsLoginFlagReducer, LoginReducer } from './reducers/login.reducers';
 import { ProductDetailsComponent } from './product-details/product-details.component';
+import { FooterComponent } from './footer/footer.component';
 
 
 
@@ -27,7 +28,8 @@ import { ProductDetailsComponent } from './product-details/product-details.compo
     HomeComponent,
     NavbarComponent,
     PageNotFoundComponent,
-    ProductDetailsComponent
+    ProductDetailsComponent,
+    FooterComponent
   ],
   imports: [
     //NgbModule,
